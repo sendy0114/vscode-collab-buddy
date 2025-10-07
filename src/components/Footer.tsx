@@ -1,70 +1,104 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
+import { SiGithub } from 'react-icons/si';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Column 1: Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Whitestone Infotech</h3>
-            <p className="text-sm opacity-90">
-              Delivering high-quality, cost-effective offshore software development services.
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                <span className="text-xl font-bold text-white">WS</span>
+              </div>
+              <span className="text-lg font-bold">WHITESTONE IT</span>
+            </div>
+            <p className="text-gray-400 text-sm mb-4">
+              Professionals for your innovation
             </p>
-            <div className="flex space-x-4 mt-4">
-              <a href="#" className="hover:opacity-80 transition-opacity">
-                <Linkedin size={20} />
+            <div className="flex gap-3">
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                <Linkedin size={18} />
               </a>
-              <a href="#" className="hover:opacity-80 transition-opacity">
-                <Twitter size={20} />
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                <Twitter size={18} />
               </a>
-              <a href="#" className="hover:opacity-80 transition-opacity">
-                <Facebook size={20} />
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                <Facebook size={18} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                <Instagram size={18} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                <SiGithub size={18} />
               </a>
             </div>
           </div>
 
+          {/* Column 2: Services */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="hover:opacity-80 transition-opacity">Home</Link></li>
-              <li><Link to="/about" className="hover:opacity-80 transition-opacity">About Us</Link></li>
-              <li><Link to="/services" className="hover:opacity-80 transition-opacity">Services</Link></li>
-              <li><Link to="/portfolio" className="hover:opacity-80 transition-opacity">Portfolio</Link></li>
+            <h4 className="font-semibold mb-4 text-lg">Services</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><a href="#" className="hover:text-white transition-colors">Website Development</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Mobile App Development</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">UI/UX Design</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">CMS & CRM</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">ERP Solutions</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Graphics Design</a></li>
             </ul>
           </div>
 
+          {/* Column 3: Company */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:opacity-80 transition-opacity">Custom Software Development</a></li>
-              <li><a href="#" className="hover:opacity-80 transition-opacity">Web Development</a></li>
-              <li><a href="#" className="hover:opacity-80 transition-opacity">Mobile App Development</a></li>
-              <li><a href="#" className="hover:opacity-80 transition-opacity">UI/UX Design</a></li>
+            <h4 className="font-semibold mb-4 text-lg">Company</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/portfolio" className="hover:text-white transition-colors">Case Studies</Link></li>
+              <li><Link to="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></li>
+              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
+          {/* Column 4: Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start space-x-2">
-                <Mail size={16} className="mt-1 flex-shrink-0" />
-                <span>info@whitestoneinfotech.com</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <Phone size={16} className="mt-1 flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-start space-x-2">
+            <h4 className="font-semibold mb-4 text-lg">Contact</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Global Presence</span>
+                <span>Ahmedabad, Gujarat, India</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Mail size={16} className="mt-1 flex-shrink-0" />
+                <a href="mailto:info@whitestoneinfotech.com" className="hover:text-white transition-colors">
+                  info@whitestoneinfotech.com
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone size={16} className="mt-1 flex-shrink-0" />
+                <a href="tel:+919978809533" className="hover:text-white transition-colors">
+                  +91 99788 09533
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Whitestone Infotech. All rights reserved.</p>
+        {/* Bottom Section */}
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+          <p>&copy; {currentYear} WhiteStone Infotech. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <span>|</span>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <span>|</span>
+            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+          </div>
         </div>
       </div>
     </footer>
