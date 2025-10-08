@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import Navbar from "./components/Navbar";
+import { Navbar } from "./features/navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
