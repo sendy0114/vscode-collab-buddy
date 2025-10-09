@@ -19,46 +19,39 @@ export const NavMenuItem: React.FC<NavMenuItemProps> = ({
   const location = useLocation();
   const isActive = location.pathname === item.path;
 
-  const linkClasses = `
-    relative px-4 py-2 text-sm font-medium transition-all duration-200 group
+  const buttonClasses = `
+    relative px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center space-x-1
     ${isActive || isOpen ? 'text-site-maroon' : 'text-gray-700 hover:text-site-maroon'}
   `;
 
   const underlineClasses = `
-    absolute bottom-0 left-0 h-[2px] w-full bg-site-maroon transition-transform duration-300
-    ${isActive || isOpen ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-75'}
+    absolute bottom-0 left-0 h-[2px] w-full bg-site-maroon transition-all duration-300
+    ${isActive || isOpen ? 'scale-x-100' : 'scale-x-0'}
   `;
-
-  const content = (
-    <>
-      <span className="flex items-center space-x-1">
-        <span>{item.name}</span>
-        {item.hasDropdown && (
-          <ChevronDown
-            size={16}
-            className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-          />
-        )}
-      </span>
-      <span className={underlineClasses}>&nbsp;</span>
-    </>
-  );
 
   if (item.path && !item.hasDropdown) {
     return (
-      <Link to={item.path} className={linkClasses}>
-        {content}
+      <Link to={item.path} className={buttonClasses}>
+        <span>{item.name}</span>
+        <span className={underlineClasses}>&nbsp;</span>
       </Link>
     );
   }
 
   return (
     <button
-      className={linkClasses}
+      className={buttonClasses}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {content}
+      <span>{item.name}</span>
+      {item.hasDropdown && (
+        <ChevronDown
+          size={16}
+          className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+        />
+      )}
+      <span className={underlineClasses}>&nbsp;</span>
     </button>
   );
 };

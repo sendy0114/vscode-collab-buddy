@@ -235,3 +235,32 @@ html {
 .navbar-dropdown:hover {
   display: block !important;
 }
+
+/* Add at the bottom of your existing index.css */
+
+/* Mega Menu Specific Animations */
+@keyframes megaMenuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-mega-menu {
+  animation: megaMenuFadeIn 0.3s ease-out forwards;
+}
+
+/* Smooth transitions for mega menu */
+.mega-menu-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Backdrop blur effect */
+.backdrop-blur-menu {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}

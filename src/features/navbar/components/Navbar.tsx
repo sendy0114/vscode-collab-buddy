@@ -3,27 +3,39 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { 
-  setScrolled, 
-  setShowNavbar, 
-  setOpenDropdown, 
-  toggleMobileMenu, 
-  closeAllDropdowns 
+import {
+  setScrolled,
+  setShowNavbar,
+  closeAllDropdowns,
 } from '../store/navbarSlice';
 import { megaMenuData, navMenuItems } from '../data/megaMenuData';
 import { MegaMenuKey } from '../types';
 import { NavLogo } from './NavLogo';
 import { NavMenuItem } from './NavMenuItem';
-import { MegaMenu } from './MegaMenu';
+import { MegaMenu } from './MegaMenu/MegaMenu';
 import { MobileMenu } from './MobileMenu';
+import { useMegaMenuHover } from '@/hooks/useMegaMenuHover';
 
 export const Navbar: React.FC = () => {
   const location = useLocation();
   const dispatch = useAppDispatch();
-  
-  const { showNavbar, openDropdown, isMobileMenuOpen } = useAppSelector(
+
+  const { showNavbar, isMobileMenuOpen } = useAppSelector(
     (state) => state.navbar
   );
+
+  // Separate hover state for each menu item
+  const servicesMenu = useMegaMenuHover({ openDelay: 200, closeDelay: 200 });
+  const technologiesMenu = useMegaMenuHover({ openDelay: 200, closeDelay: 200 });
+  const industriesMenu = useMegaMenuHover({ openDelay: 200, closeDelay: 200 });
+  const companyMenu = useMegaMenuHover({ openDelay: 200, closeDelay: 200 });
+
+  const menuHooks = {
+    Services: servicesMenu,
+    Technologies: technologiesMenu,
+    Industries: industriesMenu,
+    Company: companyMenu,
+  };
 
   // Scroll handling
   useEffect(() => {
@@ -49,15 +61,8 @@ export const Navbar: React.FC = () => {
   // Close menus on route change
   useEffect(() => {
     dispatch(closeAllDropdowns());
-  }, [location, dispatch]);
-
-  const handleMouseEnter = (menuName: string) => {
-    dispatch(setOpenDropdown(menuName));
-  };
-
-  const handleMouseLeave = () => {
-    dispatch(setOpenDropdown(null));
-  };
+    Object.values(menuHooks).forEach(hook => hook.forceClose());
+  }, [location]);
 
   return (
     <nav
@@ -74,25 +79,23 @@ export const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center space-x-1">
             {navMenuItems.map((item) => {
               const hasMegaContent = item.mega && megaMenuData[item.name as MegaMenuKey];
-              const isOpen = openDropdown === item.name;
+              const menuHook = menuHooks[item.name as MegaMenuKey];
 
               return (
-                <div
-                  key={item.name}
-                  className="relative h-full flex items-center"
-                >
+                <div key={item.name} className="relative h-full flex items-center">
                   <NavMenuItem
                     item={item}
-                    isOpen={isOpen}
-                    onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.name)}
-                    onMouseLeave={handleMouseLeave}
+                    isOpen={menuHook?.isOpen || false}
+                    onMouseEnter={() => item.hasDropdown && menuHook?.handleMouseEnter()}
+                    onMouseLeave={() => item.hasDropdown && menuHook?.handleMouseLeave()}
                   />
-                  
-                  {isOpen && hasMegaContent && (
+
+                  {hasMegaContent && menuHook && (
                     <MegaMenu
                       content={megaMenuData[item.name as MegaMenuKey]}
-                      onMouseEnter={() => handleMouseEnter(item.name)}
-                      onMouseLeave={handleMouseLeave}
+                      isOpen={menuHook.isOpen}
+                      onMouseEnter={menuHook.handleMouseEnter}
+                      onMouseLeave={menuHook.handleMouseLeave}
                     />
                   )}
                 </div>
@@ -114,7 +117,7 @@ export const Navbar: React.FC = () => {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="font-medium h-10 px-6 bg-site-maroon hover:bg-site-maroon/90 text-site-cream shadow-md"
+                className="font-medium h-10 px-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-md"
               >
                 Contact Us
               </Button>
@@ -124,7 +127,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Toggle */}
           <button
             className="lg:hidden p-2 text-gray-900 hover:text-site-maroon transition-colors"
-            onClick={() => dispatch(toggleMobileMenu())}
+            onClick={() => dispatch(closeAllDropdowns())}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
