@@ -11,11 +11,13 @@ interface LinkItem {
 interface MegaMenuLinksProps {
   links: LinkItem[];
   columns?: 1 | 2 | 3;
+  onLinkHover?: (path: string) => void;
 }
 
 export const MegaMenuLinks: React.FC<MegaMenuLinksProps> = ({ 
   links, 
-  columns = 2 
+  columns = 2,
+  onLinkHover
 }) => {
   const gridCols = {
     1: 'grid-cols-1',
@@ -24,21 +26,22 @@ export const MegaMenuLinks: React.FC<MegaMenuLinksProps> = ({
   };
 
   return (
-    <div className={`grid ${gridCols[columns]} gap-x-6 gap-y-2`}>
+    <div className={`grid ${gridCols[columns]} gap-x-6 gap-y-1`}>
       {links.map((link, index) => (
         <Link
           key={index}
           to={link.path}
-          className="group block p-2 rounded-lg hover:bg-gray-50 transition-colors duration-150"
+          onMouseEnter={() => onLinkHover?.(link.path)}
+          className="group block px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-150"
         >
-          <div className="flex items-start space-x-3">
+          <div className="flex items-start space-x-2">
             {link.icon && (
-              <span className="text-xl flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+              <span className="text-base flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
                 {link.icon}
               </span>
             )}
             <div className="flex-1 min-w-0">
-              <div className="font-semibold text-sm text-gray-900 group-hover:text-site-maroon transition-colors">
+              <div className="font-semibold text-sm text-gray-900 group-hover:text-orange-500 transition-colors">
                 {link.name}
               </div>
               {link.description && (

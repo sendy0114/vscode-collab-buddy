@@ -35,8 +35,11 @@ export interface MegaSolution {
   title: string;
   subtitle?: string;
   path: string;
+  link: string;
   buttonText?: string;
   imageUrl?: string;
+  image?: string;
+  description?: string;
 }
 
 export interface MegaMenuContent {

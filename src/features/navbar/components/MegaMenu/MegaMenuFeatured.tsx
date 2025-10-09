@@ -16,18 +16,15 @@ interface MegaMenuFeaturedProps {
 }
 
 export const MegaMenuFeatured: React.FC<MegaMenuFeaturedProps> = ({ items }) => {
-
-    // 🎯 FIX: Use the nullish coalescing operator (??) to default 'items' to an empty array []
     const featuredItems = items ?? [];
 
     return (
-        <div className="space-y-4">
-            {/* Use the safeguarded array */}
+        <div className="space-y-4 transition-all duration-300">
             {featuredItems.map((item, index) => (
                 <Link
                     key={index}
                     to={item.link}
-                    className="group block rounded-xl overflow-hidden bg-white border border-gray-100 hover:border-site-maroon hover:shadow-lg transition-all duration-300"
+                    className="group block rounded-xl overflow-hidden bg-white border border-gray-100 hover:border-orange-500 hover:shadow-lg transition-all duration-300"
                 >
                     {item.image && (
                         <div className="relative h-32 overflow-hidden">
@@ -40,11 +37,11 @@ export const MegaMenuFeatured: React.FC<MegaMenuFeaturedProps> = ({ items }) => 
                     )}
                     <div className="p-4">
                         {item.subtitle && (
-                            <div className="text-xs font-semibold text-site-maroon mb-1 uppercase tracking-wide">
+                            <div className="text-xs font-semibold text-orange-600 mb-1 uppercase tracking-wide">
                                 {item.subtitle}
                             </div>
                         )}
-                        <h4 className="font-bold text-sm text-gray-900 group-hover:text-site-maroon transition-colors mb-2">
+                        <h4 className="font-bold text-sm text-gray-900 group-hover:text-orange-500 transition-colors mb-2">
                             {item.title}
                         </h4>
                         {item.description && (
@@ -53,7 +50,7 @@ export const MegaMenuFeatured: React.FC<MegaMenuFeaturedProps> = ({ items }) => 
                             </p>
                         )}
                         {item.buttonText && (
-                            <div className="flex items-center text-site-maroon text-xs font-semibold">
+                            <div className="flex items-center text-orange-600 text-xs font-semibold">
                                 <span>{item.buttonText}</span>
                                 <svg className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
