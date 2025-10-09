@@ -109,7 +109,7 @@ export const Navbar: React.FC = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="font-medium h-10 px-6 border-gray-300 text-gray-700 hover:bg-gray-50"
+                className="group font-medium h-10 px-6 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
               >
                 Hire Us
               </Button>
@@ -117,7 +117,7 @@ export const Navbar: React.FC = () => {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="font-medium h-10 px-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-md"
+                className="group font-medium h-10 px-6 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-orange-500/40 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-500"
               >
                 Contact Us
               </Button>

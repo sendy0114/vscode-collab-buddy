@@ -22,7 +22,7 @@ export const serviceFeaturedSolutions: Record<string, MegaSolution[]> = {
       buttonText: 'Learn more',
     },
   ],
-  '/services/dotnet-development': [
+  '/services/dotnet-development-company': [
     {
       title: 'AI Solutions for Regulated Industries',
       subtitle: 'Skypoint - AI Agent for Healthcare',
@@ -122,7 +122,7 @@ export const serviceFeaturedSolutions: Record<string, MegaSolution[]> = {
       buttonText: 'Learn more',
     },
   ],
-  '/services/graphics-logo': [
+  '/services/graphics-and-logo': [
     {
       title: 'Smart Displays, Seamless Communication',
       subtitle: 'Skoop',
@@ -192,7 +192,7 @@ export const megaMenuData: Record<MegaMenuKey, MegaMenuContent> = {
       featured: {
         title: 'Staff Augmentation',
         text: 'Expand your tech team with expert professionals easily.',
-        link: '/services/staff-augmentation',
+        link: '/staff-augmentation',
         imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600',
       },
     },
@@ -203,7 +203,7 @@ export const megaMenuData: Record<MegaMenuKey, MegaMenuContent> = {
       },
       {
         title: '.NET Development Company',
-        path: '/services/dotnet-development',
+        path: '/services/dotnet-development-company',
       },
       {
         title: 'Mobile App Development',
@@ -223,7 +223,7 @@ export const megaMenuData: Record<MegaMenuKey, MegaMenuContent> = {
       },
       {
         title: 'Graphics and Logo',
-        path: '/services/graphics-logo',
+        path: '/services/graphics-and-logo',
       },
       {
         title: 'AI/ML',
