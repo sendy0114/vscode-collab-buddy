@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, ExternalLink } from "lucide-react";
+import VerticalTestimonialCarousel from './VerticalTestimonialCarousel';
 import { Link } from "react-router-dom";
 import {
   SiReact,
@@ -216,7 +217,7 @@ const Hero = () => {
           </article>
 
           {/* -------- COLUMN 3: Testimonials -------- */}
-          <aside className="lg:col-span-4 hidden lg:block">
+          {/* <aside className="lg:col-span-4 hidden lg:block">
             <div className="space-y-4">
               {testimonials.map((testimonial, idx) => (
                 <a
@@ -262,6 +263,9 @@ const Hero = () => {
                 </a>
               ))}
             </div>
+          </aside> */}
+          <aside className="lg:col-span-4 hidden lg:flex items-center justify-center">
+            <VerticalTestimonialCarousel />
           </aside>
         </div>
       </div>
