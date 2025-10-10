@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 
 const Stats = () => {
   const stats = [
-    { number: 6, suffix: '+', label: 'Years of Expertise' },
-    { number: 50, suffix: '+', label: 'IT Professionals' },
-    { number: 40, suffix: '+', label: 'Happy Clients' },
+    { number: 6, suffix: '+', label: 'Years of Excellence' },
+    { number: 50, suffix: '+', label: 'Expert Developers' },
     { number: 100, suffix: '+', label: 'Projects Delivered' },
+    { number: 95, suffix: '%', label: 'Client Retention' },
   ];
 
   const [isVisible, setIsVisible] = useState(false);

@@ -46,7 +46,10 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Email</h3>
-                      <p className="text-muted-foreground">info@whitestoneinfotech.com</p>
+                      <a href="mailto:info@whitestoneinfotech.com" className="text-primary hover:underline">
+                        info@whitestoneinfotech.com
+                      </a>
+                      <p className="text-sm text-muted-foreground mt-1">We reply within 24 hours</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -58,7 +61,10 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">Phone</h3>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                      <a href="tel:+919978809533" className="text-primary hover:underline">
+                        +91 99788 09533
+                      </a>
+                      <p className="text-sm text-muted-foreground mt-1">Mon-Fri, 9 AM - 6 PM IST</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -69,8 +75,9 @@ const Contact = () => {
                       <MapPin className="text-primary" size={24} />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-1">Location</h3>
-                      <p className="text-muted-foreground">Global Presence</p>
+                      <h3 className="font-semibold mb-1">Global Presence</h3>
+                      <p className="text-muted-foreground">Serving clients across USA, Europe, Asia & Middle East</p>
+                      <p className="text-sm text-muted-foreground mt-1">Remote-first, timezone-friendly teams</p>
                     </div>
                   </CardContent>
                 </Card>

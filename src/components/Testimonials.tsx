@@ -3,11 +3,62 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
-    { name: "John Smith", company: "Tech Innovations Inc.", avatar: "JS", rating: 5, text: "WhiteStone delivered an exceptional mobile app that exceeded our expectations. Their team was professional, responsive, and delivered on time." },
-    { name: "Sarah Johnson", company: "Global Solutions Ltd.", avatar: "SJ", rating: 5, text: "Outstanding web development services! The team understood our requirements perfectly and created a solution that transformed our business operations." },
-    { name: "Michael Chen", company: "Startup Ventures", avatar: "MC", rating: 5, text: "Working with WhiteStone was a game-changer for our startup. They built a scalable platform that helped us grow from 0 to 10,000 users in 6 months." },
-    { name: "Emily Davis", company: "Creative Studio", avatar: "ED", rating: 5, text: "A highly skilled and friendly team! Their design and development work boosted our brand identity to a new level." },
-    { name: "David Miller", company: "NextGen Solutions", avatar: "DM", rating: 5, text: "Professional, innovative, and detail-oriented. Highly recommended for any tech-driven business." },
+    { 
+      name: "Yashwant Ray", 
+      company: "Diamond Portal", 
+      avatar: "YR", 
+      rating: 5, 
+      text: "Whitestone IT transformed our diamond trading platform with exceptional development quality. Their expertise in real-time data handling and secure payment integration exceeded our expectations. The team's dedication to understanding our industry-specific needs made all the difference." 
+    },
+    { 
+      name: "Junyoung Kim", 
+      company: "NewBizStart", 
+      avatar: "JK", 
+      rating: 5, 
+      text: "Outstanding partnership from start to finish! They helped us launch our SaaS platform on time and under budget. The agile approach and weekly demos kept us informed every step. Our user base has grown 300% since launch thanks to their scalable architecture." 
+    },
+    { 
+      name: "Kieran Osborne", 
+      company: "B-Cart Solutions", 
+      avatar: "KO", 
+      rating: 5, 
+      text: "The mobile app they built for our e-commerce business has been a game-changer. Seamless UX, lightning-fast performance, and robust backend. Customer retention improved by 45%. Highly recommend for any business serious about mobile-first strategy." 
+    },
+    { 
+      name: "Sarah Mitchell", 
+      company: "HealthTech Innovations", 
+      avatar: "SM", 
+      rating: 5, 
+      text: "Working with Whitestone on our telemedicine platform was exceptional. They navigated complex HIPAA compliance requirements while delivering an intuitive patient experience. Post-launch support has been equally impressive—they truly care about long-term success." 
+    },
+    { 
+      name: "Darren Mason", 
+      company: "Dealership 360 CRM", 
+      avatar: "DM", 
+      rating: 5, 
+      text: "Best development partner we've had! They rebuilt our legacy CRM system into a modern, cloud-based solution. The migration was seamless with zero downtime. Our sales team's productivity increased by 60% thanks to the intuitive new interface." 
+    },
+    { 
+      name: "Priya Sharma", 
+      company: "EduLearn Platform", 
+      avatar: "PS", 
+      rating: 5, 
+      text: "Whitestone's team built our entire e-learning platform from scratch. Their understanding of education technology and user psychology resulted in a platform that students love. We've successfully onboarded 50,000+ users with stellar feedback on the experience." 
+    },
+    { 
+      name: "Marcus Johnson", 
+      company: "FinTech Solutions Group", 
+      avatar: "MJ", 
+      rating: 5, 
+      text: "Security and performance were our top priorities, and Whitestone delivered on both fronts. The financial dashboard they built handles millions of transactions daily without a hitch. Their expertise in fintech compliance was invaluable." 
+    },
+    { 
+      name: "Emily Zhang", 
+      company: "TravelXpress", 
+      avatar: "EZ", 
+      rating: 5, 
+      text: "They developed a comprehensive travel booking platform that competes with industry giants. The real-time availability updates, payment gateway integration, and admin dashboard are all flawless. Our booking conversion rate improved by 35%!" 
+    },
   ];
 
   // duplicate once for seamless loop
