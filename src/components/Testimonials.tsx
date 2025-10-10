@@ -23,6 +23,41 @@ const Testimonials = () => {
       rating: 5,
       text: 'Working with WhiteStone was a game-changer for our startup. They built a scalable platform that helped us grow from 0 to 10,000 users in 6 months.',
     },
+    {
+      name: 'Michael Chen',
+      company: 'Startup Ventures',
+      avatar: 'MC',
+      rating: 5,
+      text: 'Working with WhiteStone was a game-changer for our startup. They built a scalable platform that helped us grow from 0 to 10,000 users in 6 months.',
+    },
+    {
+      name: 'Sarah Johnson',
+      company: 'Global Solutions Ltd.',
+      avatar: 'SJ',
+      rating: 5,
+      text: 'Outstanding web development services! The team understood our requirements perfectly and created a solution that transformed our business operations.',
+    },
+    {
+      name: 'John Smith',
+      company: 'Tech Innovations Inc.',
+      avatar: 'JS',
+      rating: 5,
+      text: 'WhiteStone delivered an exceptional mobile app that exceeded our expectations. Their team was professional, responsive, and delivered on time.',
+    },
+    {
+      name: 'Michael Chen',
+      company: 'Startup Ventures',
+      avatar: 'MC',
+      rating: 5,
+      text: 'Working with WhiteStone was a game-changer for our startup. They built a scalable platform that helped us grow from 0 to 10,000 users in 6 months.',
+    },
+    {
+      name: 'Sarah Johnson',
+      company: 'Global Solutions Ltd.',
+      avatar: 'SJ',
+      rating: 5,
+      text: 'Outstanding web development services! The team understood our requirements perfectly and created a solution that transformed our business operations.',
+    },
   ];
 
   return (
