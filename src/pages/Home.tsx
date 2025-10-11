@@ -8,6 +8,7 @@ import PortfolioShowcase from '@/components/PortfolioShowcase';
 import Testimonials from '@/components/Testimonials';
 import CTASection from '@/components/CTASection';
 import FAQ from '@/components/FAQ';
+import PlatformReviews from '@/components/PlatformReviews';
 import Chatbot from '@/components/Chatbot';
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
       <Testimonials />
       <CTASection />
       <FAQ />
+      <PlatformReviews />
       <Chatbot />
     </div>
   );

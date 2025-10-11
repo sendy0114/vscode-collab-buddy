@@ -55,7 +55,7 @@ const ServicesInteractive = () => {
 
   return (
     <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-foreground">Services we </span>
@@ -67,7 +67,7 @@ const ServicesInteractive = () => {
         </div>
 
         {/* Tab Buttons */}
-        <div className="flex overflow-x-auto gap-2 mb-8 pb-2 scrollbar-hide">
+        <div className="flex justify-center overflow-x-auto gap-2 mb-8 pb-2 scrollbar-hide">
           {services.map((service, index) => (
             <button
               key={service.id}
@@ -83,8 +83,8 @@ const ServicesInteractive = () => {
           ))}
         </div>
 
-        {/* Service Display */}
-        <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+        {/* Service Display - Centered */}
+        <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Left Side - Content */}
             <div className="p-8 lg:p-12 flex flex-col justify-center">
@@ -103,8 +103,8 @@ const ServicesInteractive = () => {
             </div>
 
             {/* Right Side - Icon Background */}
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-12 flex items-center justify-center">
-              <ActiveIcon className="w-64 h-64 text-white/5" />
+            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-12 flex items-center justify-center min-h-[300px]">
+              <ActiveIcon className="w-48 h-48 lg:w-64 lg:h-64 text-white/5" />
             </div>
           </div>
         </div>

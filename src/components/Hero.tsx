@@ -100,7 +100,7 @@ const Hero = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden bg-gradient-to-br from-blue-50 via-white to-red-50 pt-20 pb-12 px-4 md:pt-24 md:pb-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-red-50 pt-20 pb-12 px-4 md:pt-24 md:pb-16">
       {/* Background shapes */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse-slow hidden md:block" />
       <div
@@ -110,7 +110,7 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
-          {/* -------- COLUMN 1: Platforms -------- */}
+          {/* -------- COLUMN 1: Platforms (Desktop Only) -------- */}
           <aside className="lg:col-span-2 hidden lg:block">
             <div className="space-y-4">
               {platforms.map((platform, idx) => (
@@ -147,8 +147,8 @@ const Hero = () => {
             </div>
           </aside>
 
-          {/* -------- COLUMN 2: Center Hero -------- */}
-          <article className="lg:col-span-6 space-y-6 text-center lg:text-left">
+          {/* -------- COLUMN 2: Center Hero (Priority on Mobile) -------- */}
+          <article className="lg:col-span-6 space-y-6 text-center lg:text-left order-first lg:order-none">
             <Link
               to="/technology"
               className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all group animate-fade-in text-sm md:text-base"
@@ -216,39 +216,10 @@ const Hero = () => {
             </div>
           </article>
 
-          {/* -------- COLUMN 3: Testimonials -------- */}
+          {/* -------- COLUMN 3: Testimonials (Desktop Only) -------- */}
           <aside className="lg:col-span-4 hidden lg:flex items-center justify-center">
             <VerticalTestimonialCarousel />
           </aside>
-        </div>
-      </div>
-
-      {/* Mobile platforms */}
-      <div className="lg:hidden container mx-auto mt-12">
-        <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide -mx-4 px-4">
-          {platforms.map((platform, idx) => (
-            <a
-              key={idx}
-              href={platform.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0"
-            >
-              <div className="bg-white rounded-xl p-3 shadow-md hover:shadow-lg transition-all w-32">
-                <div className="text-xs font-bold text-gray-900 mb-1 truncate">
-                  {platform.name}
-                </div>
-                <div className="flex items-center space-x-1">
-                  <span className="text-lg font-bold text-primary">{platform.rating}</span>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
         </div>
       </div>
     </section>
