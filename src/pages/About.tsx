@@ -43,14 +43,20 @@ const About = () => {
           <div className="max-w-4xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-6 text-center">Our Story</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              At Whitestone Infotech, we specialize in providing high-quality, cost-effective offshore software 
-              development services to our clients. Our team of experts is committed to delivering timely and 
-              efficient solutions that meet the unique needs of each of our clients.
+              Founded with a vision to transform businesses through innovative technology solutions, Whitestone IT has grown 
+              from a small team of passionate developers into a trusted global partner for digital transformation. With over 
+              6 years of excellence in software development, we've helped businesses across industries unlock their full potential 
+              through custom technology solutions.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+              Our journey is defined by our commitment to excellence, innovation, and client success. We combine deep technical 
+              expertise with a business-first approach, ensuring that every solution we deliver not only meets technical requirements 
+              but also drives measurable business outcomes.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We offer affordable and comprehensive custom development solutions to meet the diverse needs of our 
-              clients. Our team works closely with each client to ensure that all their requirements are met, and 
-              we guarantee the quality of our services.
+              Today, we're proud to serve clients worldwide, from ambitious startups to established enterprises, helping them 
+              navigate the complexities of digital transformation with confidence. Our team of 50+ dedicated professionals brings 
+              expertise in cutting-edge technologies, agile methodologies, and industry best practices to every project.
             </p>
           </div>
 
@@ -72,20 +78,28 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6 text-center">Why Choose Us?</h2>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div>
-                <h3 className="font-semibold mb-2">Expertise & Experience</h3>
-                <p className="text-muted-foreground">6+ years of delivering exceptional software solutions across various industries.</p>
+                <h3 className="font-semibold mb-2 text-primary">🎯 Proven Track Record</h3>
+                <p className="text-muted-foreground">100+ successful projects delivered across healthcare, fintech, e-commerce, and enterprise sectors with 95% client retention rate.</p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Agile Methodology</h3>
-                <p className="text-muted-foreground">Custom agile approach for maximum adaptability and efficiency in development.</p>
+                <h3 className="font-semibold mb-2 text-primary">⚡ Cutting-Edge Technology</h3>
+                <p className="text-muted-foreground">Expertise in AI/ML, cloud architecture, microservices, and modern frameworks ensuring future-proof solutions.</p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Cost-Effective Solutions</h3>
-                <p className="text-muted-foreground">Affordable pricing without compromising on quality or functionality.</p>
+                <h3 className="font-semibold mb-2 text-primary">🛡️ Quality Assurance</h3>
+                <p className="text-muted-foreground">Rigorous testing protocols, 99.9% uptime guarantee, and continuous monitoring for optimal performance.</p>
               </div>
               <div>
-                <h3 className="font-semibold mb-2">Dedicated Team</h3>
-                <p className="text-muted-foreground">50+ talented IT professionals committed to your success.</p>
+                <h3 className="font-semibold mb-2 text-primary">🤝 Partnership Approach</h3>
+                <p className="text-muted-foreground">We don't just build software—we become your technology partner, invested in your long-term success.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-2 text-primary">🌍 Global Reach, Local Touch</h3>
+                <p className="text-muted-foreground">Serving clients across 15+ countries with cultural understanding and timezone-friendly collaboration.</p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-2 text-primary">💡 Innovation-Driven</h3>
+                <p className="text-muted-foreground">Continuous R&D in emerging technologies to keep your business ahead of the curve.</p>
               </div>
             </div>
           </div>

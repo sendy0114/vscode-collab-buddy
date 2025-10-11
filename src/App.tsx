@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { Navbar } from "./features/navbar";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
+import BackToTop from "./components/BackToTop";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
@@ -35,6 +37,8 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Navbar />
+          <WhatsAppButton />
+          <BackToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />

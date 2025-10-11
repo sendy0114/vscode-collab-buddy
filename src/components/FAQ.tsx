@@ -3,36 +3,52 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 const FAQ = () => {
   const faqs = [
     {
-      question: 'What types of businesses do you typically work with?',
-      answer: 'We work with businesses of all sizes, from startups to large enterprises across various industries including healthcare, e-commerce, finance, real estate, and more.',
+      question: 'What services does Whitestone IT offer?',
+      answer: 'We provide comprehensive IT services including Custom Software Development, Mobile App Development (iOS & Android), Web Development, UI/UX Design, Cloud Solutions, AI/ML Integration, DevOps Services, Quality Assurance & Testing, Staff Augmentation, and Ongoing Maintenance & Support.',
     },
     {
-      question: 'I have an idea for a project. How should I reach out to you?',
-      answer: 'Simply fill out our contact form or give us a call at +91 99788 09533. We offer a free initial consultation to discuss your project requirements and provide expert guidance.',
+      question: 'What types of businesses do you work with?',
+      answer: 'We serve businesses of all sizes—from innovative startups to Fortune 500 enterprises—across diverse industries including Healthcare, Finance & Banking, E-commerce & Retail, Real Estate, Education, Manufacturing, Logistics, and SaaS platforms.',
     },
     {
-      question: 'How long does a typical project take?',
-      answer: 'Project timelines vary based on complexity and scope. A simple website might take 4-6 weeks, while a complex enterprise application could take 3-6 months. We provide detailed timelines during our discovery phase.',
-    },
-    {
-      question: 'Do you provide post-launch support?',
-      answer: 'Yes! We offer comprehensive post-launch support including bug fixes, updates, maintenance, and feature enhancements to ensure your solution runs optimally.',
-    },
-    {
-      question: 'What technologies do you specialize in?',
-      answer: 'We specialize in modern technologies including React, Node.js, Python, Angular, MongoDB, Docker, AWS, and more. We stay updated with the latest industry trends to deliver cutting-edge solutions.',
+      question: 'How do I get started with my project?',
+      answer: 'Getting started is simple: 1) Contact us via our website or phone, 2) Schedule a free consultation to discuss your needs, 3) Receive a detailed proposal with timeline and cost, 4) Sign agreement and kickoff your project. We typically respond within 24 hours.',
     },
     {
       question: 'What is your development process?',
-      answer: 'Our refined process includes four key phases: Discover (understanding requirements), Design (creating stunning designs), Build (developing robust solutions), and Deliver (ensuring smooth deployment and support).',
+      answer: 'We follow an agile methodology with four key phases: Discovery (requirements gathering & analysis), Design (wireframing, mockups & prototyping), Development (iterative coding with regular demos), and Deployment (testing, launch & handover). We maintain transparent communication throughout with regular updates and milestone reviews.',
     },
     {
-      question: 'Do you sign NDAs?',
-      answer: 'Absolutely! We understand the importance of confidentiality and are happy to sign NDAs to protect your intellectual property and business ideas.',
+      question: 'How long does it take to complete a project?',
+      answer: 'Timeline depends on project complexity: Simple websites (3-6 weeks), Mobile apps (8-16 weeks), Enterprise solutions (3-9 months), MVP development (6-10 weeks). We provide accurate estimates after understanding your requirements.',
     },
     {
-      question: 'What are your payment terms?',
-      answer: 'We typically work on a milestone-based payment structure. This includes an initial deposit, followed by payments at key project milestones, with the final payment upon project completion and approval.',
+      question: 'Do you provide post-launch support and maintenance?',
+      answer: 'Yes! We offer comprehensive post-launch support including 30-day warranty, bug fixes, security updates, performance monitoring, feature enhancements, and dedicated support channels. We also provide flexible maintenance packages for ongoing support.',
+    },
+    {
+      question: 'What technologies and platforms do you work with?',
+      answer: 'We specialize in: Frontend (React, Angular, Vue.js, Next.js), Backend (Node.js, Python, .NET, PHP), Mobile (React Native, Flutter, Swift, Kotlin), Cloud (AWS, Azure, Google Cloud), Databases (MongoDB, PostgreSQL, MySQL, Firebase), and emerging technologies like AI/ML, Blockchain, and IoT.',
+    },
+    {
+      question: 'How much does it cost to build a custom solution?',
+      answer: 'Costs vary based on project scope, complexity, and timeline. Simple websites start from $5,000, mobile apps from $15,000, and enterprise solutions from $50,000+. We provide transparent, detailed quotes with no hidden fees after understanding your requirements.',
+    },
+    {
+      question: 'Can you work with our existing codebase or team?',
+      answer: 'Absolutely! We excel at integrating with existing projects and teams. Whether you need to modernize legacy systems, add new features, or augment your in-house team with specialized expertise, we adapt to your workflow and tools.',
+    },
+    {
+      question: 'Do you sign NDAs and protect intellectual property?',
+      answer: 'Yes, confidentiality is paramount. We sign NDAs before any project discussions and ensure complete IP rights transfer upon project completion. All our contracts include strict confidentiality clauses and data protection measures.',
+    },
+    {
+      question: 'What makes Whitestone IT different from other development companies?',
+      answer: 'Our differentiators include: 6+ years of proven expertise, 95% client retention rate, dedicated project managers, agile methodology with weekly sprints, transparent communication, competitive pricing without quality compromise, post-launch support, and a team passionate about your success.',
+    },
+    {
+      question: 'Can you help scale my application as my business grows?',
+      answer: 'Absolutely! We build scalable architectures from day one using cloud-native technologies, microservices, and best practices. We also provide ongoing optimization, infrastructure scaling, and performance tuning as your user base grows.',
     },
   ];
 

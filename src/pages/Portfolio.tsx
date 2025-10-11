@@ -4,46 +4,67 @@ import { Badge } from '@/components/ui/badge';
 const Portfolio = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      category: 'Web Development',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&auto=format&fit=crop',
-      description: 'A comprehensive e-commerce solution with advanced features and seamless user experience.'
+      title: 'Diamond Portal - B2B Trading Platform',
+      category: 'Enterprise Web Application',
+      tags: ['React', 'Node.js', 'MongoDB', 'WebSocket'],
+      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&auto=format&fit=crop',
+      description: 'Real-time diamond trading platform with secure payment gateway, advanced search filters, and live price updates. Handles 10,000+ daily transactions with 99.9% uptime.'
     },
     {
-      title: 'Healthcare Mobile App',
-      category: 'Mobile Development',
-      tags: ['React Native', 'Firebase', 'Healthcare'],
+      title: 'TeleMed Pro - Healthcare Platform',
+      category: 'Healthcare & Telemedicine',
+      tags: ['React Native', 'AWS', 'HIPAA', 'WebRTC'],
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop',
-      description: 'Patient management system with telemedicine capabilities and health tracking.'
+      description: 'HIPAA-compliant telemedicine app with video consultations, e-prescriptions, health records, and appointment scheduling. Serving 50,000+ patients across 15 states.'
     },
     {
-      title: 'Financial Dashboard',
-      category: 'Web Application',
-      tags: ['Angular', 'D3.js', 'Finance'],
+      title: 'FinanceFlow - Investment Dashboard',
+      category: 'FinTech Application',
+      tags: ['Angular', 'D3.js', 'Python', 'AWS Lambda'],
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop',
-      description: 'Real-time financial analytics dashboard with interactive visualizations.'
+      description: 'AI-powered financial analytics dashboard with real-time market data, portfolio tracking, risk analysis, and automated trading alerts for institutional investors.'
     },
     {
-      title: 'Logistics Management System',
-      category: 'Enterprise Software',
-      tags: ['Vue.js', 'PostgreSQL', 'AWS'],
+      title: 'ShipTrack360 - Logistics Platform',
+      category: 'Supply Chain & Logistics',
+      tags: ['Vue.js', 'PostgreSQL', 'Google Maps API', 'IoT'],
       image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop',
-      description: 'End-to-end logistics tracking and management platform for global operations.'
+      description: 'End-to-end logistics management with GPS tracking, route optimization, warehouse management, and predictive delivery analytics. Managing 100,000+ shipments monthly.'
     },
     {
-      title: 'Social Media Platform',
-      category: 'Web Development',
-      tags: ['React', 'GraphQL', 'Redis'],
+      title: 'SocialHub - Community Platform',
+      category: 'Social Media & Networking',
+      tags: ['Next.js', 'GraphQL', 'Redis', 'Elasticsearch'],
       image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop',
-      description: 'Community-driven social platform with real-time messaging and content sharing.'
+      description: 'Feature-rich social platform with real-time messaging, content feeds, video sharing, and AI-powered content recommendations. Scaled to 500,000+ active users.'
     },
     {
-      title: 'Restaurant Management App',
-      category: 'Mobile Development',
-      tags: ['Flutter', 'Firebase', 'Food'],
+      title: 'RestoPro - Restaurant Management',
+      category: 'Hospitality & F&B',
+      tags: ['Flutter', 'Firebase', 'Stripe', 'QR Codes'],
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop',
-      description: 'Complete restaurant operations management with POS and inventory tracking.'
+      description: 'Comprehensive restaurant suite with POS system, contactless ordering, inventory management, staff scheduling, and analytics dashboard. Used by 200+ restaurants.'
+    },
+    {
+      title: 'EduLearn - E-Learning Platform',
+      category: 'Education Technology',
+      tags: ['React', 'Node.js', 'MongoDB', 'Video Streaming'],
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&auto=format&fit=crop',
+      description: 'Interactive learning platform with live classes, course marketplace, progress tracking, certificates, and AI-based personalized recommendations for 50,000+ students.'
+    },
+    {
+      title: 'PropManage - Real Estate CRM',
+      category: 'Real Estate & CRM',
+      tags: ['React', '.NET Core', 'SQL Server', 'Azure'],
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop',
+      description: 'All-in-one real estate management system with property listings, tenant portals, payment processing, maintenance tracking, and document management for 1,000+ properties.'
+    },
+    {
+      title: 'FitTrack Pro - Fitness & Wellness',
+      category: 'Health & Fitness',
+      tags: ['React Native', 'Firebase', 'ML Kit', 'HealthKit'],
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop',
+      description: 'Smart fitness app with workout tracking, meal planning, AI coach, wearable integration, and social challenges. 100,000+ downloads with 4.8★ rating.'
     },
   ];
 

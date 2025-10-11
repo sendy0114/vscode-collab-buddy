@@ -21,19 +21,19 @@ const Footer = () => {
               Professionals for your innovation
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://www.linkedin.com/company/whitestone-it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://twitter.com/whitestone_it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Twitter">
                 <Twitter size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://www.facebook.com/whitestoneit" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://www.instagram.com/whitestone.it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="https://github.com/whitestone-it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="GitHub">
                 <SiGithub size={18} />
               </a>
             </div>
@@ -43,12 +43,14 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Services</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Website Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Mobile App Development</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">UI/UX Design</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">CMS & CRM</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">ERP Solutions</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Graphics Design</a></li>
+              <li><Link to="/services/website-development" className="hover:text-white transition-colors">Website Development</Link></li>
+              <li><Link to="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</Link></li>
+              <li><Link to="/services/uiux-design" className="hover:text-white transition-colors">UI/UX Design</Link></li>
+              <li><Link to="/services/cms-crm" className="hover:text-white transition-colors">CMS & CRM</Link></li>
+              <li><Link to="/services/erp" className="hover:text-white transition-colors">ERP Solutions</Link></li>
+              <li><Link to="/services/graphics-and-logo" className="hover:text-white transition-colors">Graphics & Logo</Link></li>
+              <li><Link to="/services/aiml" className="hover:text-white transition-colors">AI & ML</Link></li>
+              <li><Link to="/services/staff-augmentation" className="hover:text-white transition-colors">Staff Augmentation</Link></li>
             </ul>
           </div>
 

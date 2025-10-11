@@ -88,9 +88,15 @@ const Careers = () => {
               {openings.map((job, index) => (
                 <Card key={index} className="hover-scale">
                   <CardHeader>
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <CardTitle className="text-2xl">{job.title}</CardTitle>
-                      <Button>Apply Now</Button>
+                      <a 
+                        href={`mailto:careers@whitestoneinfotech.com?subject=Application for ${encodeURIComponent(job.title)}&body=Hi,%0D%0A%0D%0AI am interested in applying for the ${encodeURIComponent(job.title)} position.%0D%0A%0D%0AAttached is my resume for your consideration.%0D%0A%0D%0AThank you!`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button>Apply Now</Button>
+                      </a>
                     </div>
                   </CardHeader>
                   <CardContent>
