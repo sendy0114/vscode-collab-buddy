@@ -100,15 +100,15 @@ const Hero = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-red-50 pt-24 pb-12">
+    <section className="relative min-h-screen flex items-center justify-center overflow-x-hidden bg-gradient-to-br from-blue-50 via-white to-red-50 pt-20 pb-12 px-4 md:pt-24 md:pb-16">
       {/* Background shapes */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
+      <div className="absolute top-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse-slow hidden md:block" />
       <div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"
+        className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow hidden md:block"
         style={{ animationDelay: "1s" }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* -------- COLUMN 1: Platforms -------- */}
           <aside className="lg:col-span-2 hidden lg:block">
@@ -151,17 +151,17 @@ const Hero = () => {
           <article className="lg:col-span-6 space-y-6 text-center lg:text-left">
             <Link
               to="/technology"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all group animate-fade-in"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all group animate-fade-in text-sm md:text-base"
             >
-              <span className="text-2xl">✨</span>
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-xl md:text-2xl">✨</span>
+              <span className="text-xs md:text-sm font-medium text-gray-700">
                 Specialized in AI & Modern Technologies
               </span>
               <ArrowRight className="w-4 h-4 text-gray-600 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in-up"
+              className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fade-in-up"
               style={{ animationDelay: "0.1s" }}
             >
               Build Your Vision with{" "}
@@ -171,7 +171,7 @@ const Hero = () => {
             </h1>
 
             <p
-              className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in-up"
+              className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
               Get top-tier development services tailored to your needs. Whether
@@ -217,53 +217,6 @@ const Hero = () => {
           </article>
 
           {/* -------- COLUMN 3: Testimonials -------- */}
-          {/* <aside className="lg:col-span-4 hidden lg:block">
-            <div className="space-y-4">
-              {testimonials.map((testimonial, idx) => (
-                <a
-                  key={idx}
-                  href={testimonial.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group block transition-all duration-500 animate-float-slow ${
-                    activeReview === idx ? "scale-105 opacity-100" : "scale-100 opacity-80"
-                  }`}
-                  style={{ animationDelay: testimonial.delay }}
-                >
-                  <div className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl border border-gray-100 hover:border-primary">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-red-700 flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-110 transition-transform">
-                        {testimonial.avatar}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="font-bold text-gray-900 truncate">
-                            {testimonial.name}
-                          </h4>
-                          <div className="flex items-center space-x-1 bg-yellow-50 px-2 py-0.5 rounded-full">
-                            <span className="text-sm font-bold text-yellow-600">
-                              {testimonial.rating}.0
-                            </span>
-                            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                          </div>
-                        </div>
-                        <p className="text-sm text-gray-600 truncate mb-2">
-                          {testimonial.company}
-                        </p>
-                        <div className="flex items-center space-x-1">
-                          <span className="text-xs text-gray-500">via</span>
-                          <span className="text-xs font-semibold text-primary">
-                            {testimonial.platform}
-                          </span>
-                          <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-primary transition-colors" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </aside> */}
           <aside className="lg:col-span-4 hidden lg:flex items-center justify-center">
             <VerticalTestimonialCarousel />
           </aside>
@@ -271,8 +224,8 @@ const Hero = () => {
       </div>
 
       {/* Mobile platforms */}
-      <div className="lg:hidden container mx-auto px-4 mt-12">
-        <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide">
+      <div className="lg:hidden container mx-auto mt-12">
+        <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-hide -mx-4 px-4">
           {platforms.map((platform, idx) => (
             <a
               key={idx}
