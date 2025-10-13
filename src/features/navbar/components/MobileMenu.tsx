@@ -15,86 +15,137 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   megaMenuData, 
   onClose 
 }) => {
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openSection, setOpenSection] = useState<string | null>(null);
+  const [openSubItems, setOpenSubItems] = useState<Record<string, boolean>>({});
 
-  const handleDropdownToggle = (menuName: string) => {
-    setOpenDropdown((prev) => (prev === menuName ? null : menuName));
+  const handleSectionToggle = (menuName: string) => {
+    setOpenSection((prev) => (prev === menuName ? null : menuName));
+    setOpenSubItems({});
+  };
+
+  const handleSubItemToggle = (itemName: string) => {
+    setOpenSubItems((prev) => ({
+      ...prev,
+      [itemName]: !prev[itemName]
+    }));
   };
 
   return (
-    <div className="lg:hidden pb-4 bg-white shadow-xl mt-4 mx-4 rounded-lg animate-fade-in">
-      <div className="flex flex-col space-y-1 p-2">
-        {menuItems.map((item) => {
-          const hasMegaContent = item.mega && megaMenuData[item.name as MegaMenuKey];
-          
-          return (
-            <div key={item.name}>
-              {item.hasDropdown ? (
-                <>
-                  <button
-                    onClick={() => handleDropdownToggle(item.name)}
-                    className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
-                  >
-                    <span>{item.name}</span>
-                    <ChevronDown 
-                      size={16} 
-                      className={`transition-transform ${openDropdown === item.name ? 'rotate-180' : ''}`} 
-                    />
-                  </button>
+    <div className="fixed inset-0 bg-white z-50 overflow-y-auto lg:hidden">
+      <div className="flex flex-col h-full">
+        {/* Header with buttons */}
+        <div className="flex items-center justify-between p-4 border-b">
+          <div className="flex gap-2">
+            <Link to="/contact" onClick={onClose}>
+              <Button
+                variant="outline"
+                className="h-10 px-6 border-primary text-primary hover:bg-primary/10"
+              >
+                Hire Us
+              </Button>
+            </Link>
+            <Link to="/contact" onClick={onClose}>
+              <Button className="h-10 px-6 bg-primary hover:bg-primary/90 text-white">
+                Contact Us
+              </Button>
+            </Link>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            aria-label="Close menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
-                  {openDropdown === item.name && hasMegaContent && (
-                    <div className="ml-4 mt-1 space-y-1 animate-fade-in">
-                      {megaMenuData[item.name as MegaMenuKey].links.map((linkItem) => (
-                        <div key={linkItem.path}>
-                          <Link
-                            to={linkItem.path}
-                            onClick={onClose}
-                            className="block px-4 py-2 text-sm font-medium text-site-maroon hover:bg-gray-50 rounded-md transition-colors"
-                          >
-                            {linkItem.title}
-                          </Link>
-                          {linkItem.items?.map((subItem) => (
-                            <Link
-                              key={subItem.path}
-                              to={subItem.path}
-                              onClick={onClose}
-                              className="block px-6 py-1 text-xs text-gray-600 hover:text-site-maroon hover:bg-gray-50 rounded-md transition-colors"
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
+        {/* Menu Items */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="p-4 space-y-2">
+            {menuItems.map((item) => {
+              const hasMegaContent = item.mega && megaMenuData[item.name as MegaMenuKey];
+              const isExpanded = openSection === item.name;
+              
+              return (
+                <div key={item.name} className="border-b border-gray-100 last:border-0">
+                  {item.hasDropdown && hasMegaContent ? (
+                    <>
+                      <button
+                        onClick={() => handleSectionToggle(item.name)}
+                        className="w-full flex items-center justify-between py-4 text-lg font-semibold text-gray-900 hover:text-primary transition-colors"
+                      >
+                        <span className={isExpanded ? 'text-primary' : ''}>{item.name}</span>
+                        <ChevronDown 
+                          size={20} 
+                          className={`transition-transform ${isExpanded ? 'rotate-180 text-primary' : ''}`} 
+                        />
+                      </button>
+
+                      {isExpanded && (
+                        <div className="pb-4 space-y-1 animate-fade-in">
+                          {megaMenuData[item.name as MegaMenuKey].links.map((linkItem, idx) => {
+                            const hasSubItems = linkItem.items && linkItem.items.length > 0;
+                            const isSubExpanded = openSubItems[linkItem.title];
+
+                            return (
+                              <div key={idx} className="bg-gray-50 rounded-lg overflow-hidden">
+                                {hasSubItems ? (
+                                  <>
+                                    <button
+                                      onClick={() => handleSubItemToggle(linkItem.title)}
+                                      className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-100 transition-colors"
+                                    >
+                                      <span>{linkItem.title}</span>
+                                      <ChevronDown 
+                                        size={16} 
+                                        className={`transition-transform ${isSubExpanded ? 'rotate-180' : ''}`} 
+                                      />
+                                    </button>
+                                    {isSubExpanded && linkItem.items && (
+                                      <div className="bg-white border-t border-gray-200">
+                                        {linkItem.items.map((subItem, subIdx) => (
+                                          <Link
+                                            key={subIdx}
+                                            to={subItem.path}
+                                            onClick={onClose}
+                                            className="block px-6 py-2 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors"
+                                          >
+                                            {subItem.name}
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    )}
+                                  </>
+                                ) : (
+                                  <Link
+                                    to={linkItem.path}
+                                    onClick={onClose}
+                                    className="block px-4 py-3 text-sm font-medium text-gray-900 hover:text-primary hover:bg-gray-100 transition-colors"
+                                  >
+                                    {linkItem.title}
+                                  </Link>
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
-                      ))}
-                    </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      to={item.path!}
+                      onClick={onClose}
+                      className="block py-4 text-lg font-semibold text-gray-900 hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
                   )}
-                </>
-              ) : (
-                <Link
-                  to={item.path!}
-                  onClick={onClose}
-                  className="block px-4 py-3 text-sm font-medium text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
-                >
-                  {item.name}
-                </Link>
-              )}
-            </div>
-          );
-        })}
-
-        <div className="pt-4 space-y-2 px-4">
-          <Link to="/contact" onClick={onClose}>
-            <Button
-              variant="outline"
-              className="w-full h-10 px-6 border-gray-300 text-gray-700 hover:bg-gray-50"
-            >
-              Hire Us
-            </Button>
-          </Link>
-          <Link to="/contact" onClick={onClose}>
-            <Button className="w-full h-10 px-6 bg-site-maroon hover:bg-site-maroon/90 text-site-cream">
-              Contact Us
-            </Button>
-          </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

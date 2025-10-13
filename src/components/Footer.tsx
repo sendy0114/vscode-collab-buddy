@@ -1,73 +1,156 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Column 1: Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-xl font-bold text-white">WS</span>
-              </div>
-              <span className="text-lg font-bold">WHITESTONE IT</span>
-            </div>
-            <p className="text-gray-400 text-sm mb-4">
-              Professionals for your innovation
-            </p>
-            <div className="flex gap-3">
-              <a href="https://www.linkedin.com/company/whitestone-it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </a>
-              <a href="https://twitter.com/whitestone_it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Twitter">
-                <Twitter size={18} />
-              </a>
-              <a href="https://www.facebook.com/whitestoneit" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
-                <Facebook size={18} />
-              </a>
-              <a href="https://www.instagram.com/whitestone.it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
-                <Instagram size={18} />
-              </a>
-              <a href="https://github.com/whitestone-it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="GitHub">
-                <SiGithub size={18} />
-              </a>
-            </div>
-          </div>
-
-          {/* Column 2: Services */}
+      <div className="container mx-auto px-4 py-12 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+          {/* Column 1: Services */}
           <div>
             <h4 className="font-semibold mb-4 text-lg">Services</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/services/website-development" className="hover:text-white transition-colors">Website Development</Link></li>
-              <li><Link to="/services/mobile-app-development" className="hover:text-white transition-colors">Mobile App Development</Link></li>
-              <li><Link to="/services/uiux-design" className="hover:text-white transition-colors">UI/UX Design</Link></li>
-              <li><Link to="/services/cms-crm" className="hover:text-white transition-colors">CMS & CRM</Link></li>
-              <li><Link to="/services/erp" className="hover:text-white transition-colors">ERP Solutions</Link></li>
-              <li><Link to="/services/graphics-and-logo" className="hover:text-white transition-colors">Graphics & Logo</Link></li>
-              <li><Link to="/services/aiml" className="hover:text-white transition-colors">AI & ML</Link></li>
-              <li><Link to="/services/staff-augmentation" className="hover:text-white transition-colors">Staff Augmentation</Link></li>
+              <li>
+                <Link 
+                  to="/services/website-development" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/services/website-development' ? 'text-primary' : ''}`}
+                >
+                  Website Development
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/services/mobile-app-development" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/services/mobile-app-development' ? 'text-primary' : ''}`}
+                >
+                  Mobile App Development
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/services/uiux-design" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/services/uiux-design' ? 'text-primary' : ''}`}
+                >
+                  UI/UX Design
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/services/cms-crm" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/services/cms-crm' ? 'text-primary' : ''}`}
+                >
+                  CMS & CRM
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/services/erp" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/services/erp' ? 'text-primary' : ''}`}
+                >
+                  ERP Solutions
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/services/graphics-and-logo" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/services/graphics-and-logo' ? 'text-primary' : ''}`}
+                >
+                  Graphics & Logo
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/services/aiml" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/services/aiml' ? 'text-primary' : ''}`}
+                >
+                  AI & ML
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Column 3: Company */}
+          {/* Column 2: Company */}
           <div>
             <h4 className="font-semibold mb-4 text-lg">Company</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/portfolio" className="hover:text-white transition-colors">Case Studies</Link></li>
-              <li><Link to="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></li>
-              <li><Link to="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li>
+                <Link 
+                  to="/" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/' ? 'text-primary' : ''}`}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/about" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/about' ? 'text-primary' : ''}`}
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/portfolio" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/portfolio' ? 'text-primary' : ''}`}
+                >
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/careers" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/careers' ? 'text-primary' : ''}`}
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/contact" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/contact' ? 'text-primary' : ''}`}
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
+          {/* Column 3: Technologies */}
+          <div>
+            <h4 className="font-semibold mb-4 text-lg">Technologies</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>
+                <Link 
+                  to="/technology" 
+                  className={`hover:text-white transition-colors ${location.pathname === '/technology' ? 'text-primary' : ''}`}
+                >
+                  Front-end
+                </Link>
+              </li>
+              <li><Link to="/technology" className="hover:text-white transition-colors">Back-end</Link></li>
+              <li><Link to="/technology" className="hover:text-white transition-colors">Database</Link></li>
+              <li><Link to="/technology" className="hover:text-white transition-colors">Mobile</Link></li>
+              <li><Link to="/technology" className="hover:text-white transition-colors">Cloud Services</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Quick Links */}
+          <div>
+            <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
+              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          {/* Column 5: Contact */}
           <div>
             <h4 className="font-semibold mb-4 text-lg">Contact</h4>
             <ul className="space-y-3 text-sm text-gray-400">
@@ -88,19 +171,31 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+            
+            {/* Social Media */}
+            <div className="flex gap-3 mt-6">
+              <a href="https://www.linkedin.com/company/whitestone-it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+              <a href="https://twitter.com/whitestone_it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Twitter">
+                <Twitter size={18} />
+              </a>
+              <a href="https://www.facebook.com/whitestoneit" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
+                <Facebook size={18} />
+              </a>
+              <a href="https://www.instagram.com/whitestone.it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
+                <Instagram size={18} />
+              </a>
+              <a href="https://github.com/whitestone-it" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="GitHub">
+                <SiGithub size={18} />
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
           <p>&copy; {currentYear} WhiteStone Infotech. All rights reserved.</p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <span>|</span>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <span>|</span>
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
-          </div>
         </div>
       </div>
     </footer>

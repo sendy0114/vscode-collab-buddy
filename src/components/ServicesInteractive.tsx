@@ -54,57 +54,59 @@ const ServicesInteractive = () => {
   const ActiveIcon = services[activeService].icon;
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+    <section className="py-12 md:py-20 bg-background">
+      <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-foreground">Services we </span>
             <span className="text-primary">offer</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             We understand that every business is unique, and we tailor our services to meet your specific needs and objectives.
           </p>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="flex overflow-x-auto gap-2 mb-8 pb-2 scrollbar-hide">
-          {services.map((service, index) => (
-            <button
-              key={service.id}
-              onClick={() => setActiveService(index)}
-              className={`px-6 py-3 rounded-lg font-medium whitespace-nowrap transition-all ${
-                activeService === index
-                  ? 'bg-primary text-primary-foreground shadow-lg'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              {service.title}
-            </button>
-          ))}
+        {/* Tab Buttons - Scrollable on mobile */}
+        <div className="overflow-x-auto mb-6 md:mb-8 -mx-4 px-4 scrollbar-hide">
+          <div className="flex md:justify-center gap-2 pb-2 min-w-max md:min-w-0">
+            {services.map((service, index) => (
+              <button
+                key={service.id}
+                onClick={() => setActiveService(index)}
+                className={`px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium whitespace-nowrap transition-all text-sm md:text-base ${
+                  activeService === index
+                    ? 'bg-primary text-primary-foreground shadow-lg'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+              >
+                {service.title}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Service Display */}
-        <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+        {/* Service Display - Responsive */}
+        <div className="bg-gray-900 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Left Side - Content */}
-            <div className="p-8 lg:p-12 flex flex-col justify-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                <ActiveIcon className="w-8 h-8 text-primary" />
+            <div className="p-6 md:p-8 lg:p-12 flex flex-col justify-center">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-4 md:mb-6">
+                <ActiveIcon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
                 {services[activeService].title}
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4 md:mb-6">
                 {services[activeService].description}
               </p>
-              <Button className="w-fit bg-primary hover:bg-primary-glow">
+              <Button className="w-fit bg-primary hover:bg-primary/90 text-sm md:text-base">
                 Explore →
               </Button>
             </div>
 
             {/* Right Side - Icon Background */}
-            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-12 flex items-center justify-center">
-              <ActiveIcon className="w-64 h-64 text-white/5" />
+            <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-8 md:p-12 flex items-center justify-center min-h-[200px] md:min-h-[300px]">
+              <ActiveIcon className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 text-white/5" />
             </div>
           </div>
         </div>
