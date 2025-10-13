@@ -56,14 +56,13 @@ const Chatbot = () => {
       <div className="fixed bottom-6 right-6 z-50">
         {!isOpen && (
           <div className="absolute bottom-20 right-0 bg-white p-4 rounded-xl shadow-xl animate-bounce mb-2 max-w-xs">
-            <p className="text-sm font-medium">👋 Hi there! How can we help you?</p>
+            <p className="text-sm font-medium text-nowrap">👋 Hi there! How can we help you?</p>
           </div>
         )}
         
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          size="lg"
-          className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary-glow shadow-2xl hover:shadow-3xl hover:scale-110 transition-all relative animate-pulse"
+          size="lg" className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primary-glow shadow-2xl hover:shadow-3xl hover:scale-110 transition-all relative animate-pulse"
         >
           <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
           {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
