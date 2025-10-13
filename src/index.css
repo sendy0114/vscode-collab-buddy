@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+   All colors MUST be HSL.
 */
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -98,171 +97,29 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
 }
 
 /* Custom Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.6s ease-out forwards;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 0.6s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.3s ease-out forwards;
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Hide scrollbar for horizontal scroll */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.2s ease-out forwards;
-}
-
-/* Navbar Dropdown Fix */
-.navbar-dropdown {
-  position: fixed !important;
-  top: 5rem !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 9999 !important;
-  pointer-events: auto !important;
-}
-
-/* Prevent flickering */
-.navbar-dropdown-trigger:hover + .navbar-dropdown,
-.navbar-dropdown:hover {
-  display: block !important;
-}
-
-/* Add at the bottom of your existing index.css */
-
-/* Mega Menu Specific Animations */
-@keyframes megaMenuFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-mega-menu {
-  animation: megaMenuFadeIn 0.3s ease-out forwards;
-}
-
-/* Smooth transitions for mega menu */
-.mega-menu-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Backdrop blur effect */
-.backdrop-blur-menu {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes float-slow {
@@ -270,14 +127,9 @@ html {
   50% { transform: translateY(-10px); }
 }
 
-@keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulse-slow {
@@ -285,36 +137,61 @@ html {
   50% { opacity: 1; transform: scale(1.05); }
 }
 
-.animate-float-slow {
-  animation: float-slow 4s ease-in-out infinite;
+.animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.6s ease-out forwards; }
+.animate-fade-in-right { animation: fadeInRight 0.6s ease-out forwards; }
+.animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
+.animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
+.animate-pulse-slow { animation: pulse-slow 5s ease-in-out infinite; }
+
+/* Utility Classes */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
 }
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease forwards;
-}
-.animate-fade-in {
-  animation: fade-in 1s ease forwards;
-}
-.animate-pulse-slow {
-  animation: pulse-slow 5s ease-in-out infinite;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-/* Smooth height transition */
 .transition-height {
   transition: height 0.3s ease-out;
 }
 
+.backdrop-blur-menu {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Navbar Dropdown Fix - Consider refactoring in component.
+   Avoids !important, which can lead to specificity issues. */
+.navbar-dropdown {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navbar-dropdown-trigger:hover + .navbar-dropdown,
+.navbar-dropdown:hover {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Mega Menu Specific Animations */
+@keyframes megaMenuFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-mega-menu {
+  animation: megaMenuFadeIn 0.3s ease-out forwards;
+}
+
+.mega-menu-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

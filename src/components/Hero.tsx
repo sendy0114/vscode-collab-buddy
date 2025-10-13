@@ -148,7 +148,7 @@ const Hero = () => {
           </aside>
 
           {/* -------- COLUMN 2: Center Hero (Priority on Mobile) -------- */}
-          <article className="lg:col-span-6 space-y-6 text-center lg:text-left order-first lg:order-none">
+          <article className="lg:col-span-6 mt-[15%] space-y-6 text-center lg:text-left order-first lg:order-none">
             <Link
               to="/technology"
               className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all group animate-fade-in text-sm md:text-base"
