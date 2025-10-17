@@ -1,194 +1,183 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from "react";
+import DeveloperIllustration from "./DeveloperIllustration";
 
-// --- Self-contained Icon Definitions (Fixed: Removed duplicate strokeLinecap attributes) ---
-const Globe = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>;
-const Smartphone = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>;
-const Palette = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 6L8 20l-4-4 14-6"/><path d="M11 2a4 4 0 0 0-4 4c0 3 3 5 3 5L8 20l4-4 14-6-4-4-6 6z"/><path d="M16 4h2l2 2"/></svg>;
-const Database = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>;
-const Shield = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>;
-const Rocket = (props) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5-.7-2.5-2.2-2.5-4s1-3.3 2.5-4M9 16.5c-1.5-.7-2.5-2.2-2.5-4s1-3.3 2.5-4"/><path d="M15 16.5c-1.5-.7-2.5-2.2-2.5-4s1-3.3 2.5-4"/><path d="M22 14V10"/><path d="M14 2c2.2 0 4 1.8 4 4v.5c0 2.2-1.8 4-4 4s-4-1.8-4-4V6c0-2.2 1.8-4 4-4z"/></svg>;
-// --------------------------------------------------------------------------
-
-// --- Simple Button Component (replacing component import) ---
-const Button = ({ children, className = '', ...props }) => (
-  <button
-    className={`inline-flex items-center justify-center whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ${className}`}
-    {...props}
-  >
-    {children}
-  </button>
+// --- Icons (Lucide SVGs) ---
+const GlobeIcon = (props) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+    <path d="M2 12h20" />
+  </svg>
 );
-// ------------------------------------------------------------
 
-// Define custom Tailwind configuration for aesthetics
-const tailwindConfig = `
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0e7490', // Cyan 700 for a deep corporate blue
-            'primary-foreground': '#ffffff',
-            foreground: '#1f2937', // Dark Gray
-            background: '#f9fafb', // Light Gray background
-            'muted-foreground': '#6b7280',
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-`;
+const SmartphoneIcon = (props) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+    <path d="M12 18h.01" />
+  </svg>
+);
 
+const AndroidIcon = (props) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 10h16M4 14h16M8 18h8M9 6l-1-2M15 6l1-2M6 6h12v12H6z" />
+  </svg>
+);
+
+const ShieldIcon = (props) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+  </svg>
+);
+
+const RocketIcon = (props) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4.5 16.5c-1.5 1.75-2 3.5-2 5.5a1 1 0 0 0 1 1c2 0 3.75-.5 5.5-2m6-13.5c.7-.7 1.5-1.25 2.5-1.5 1.5-.5 3 0 4 1s1.5 2.5 1 4c-.25 1-.8 1.8-1.5 2.5M12 12l-1.5 1.5M6 18l1.5-1.5" />
+    <circle cx="12" cy="12" r="2" />
+    <path d="M12 2v2m0 16v2M2 12h2m16 0h2" />
+  </svg>
+);
+
+const PaletteIcon = (props) => (
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="13.5" cy="6.5" r=".5" />
+    <circle cx="17.5" cy="10.5" r=".5" />
+    <circle cx="8.5" cy="7.5" r=".5" />
+    <circle cx="6.5" cy="12.5" r=".5" />
+    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+  </svg>
+);
+
+// --- Services Data ---
 const services = [
-    {
-      id: 'web',
-      title: 'Website Development',
-      icon: Globe,
-      description: 'Our team of skilled developers utilize the latest technologies to design innovative web solutions within agreed timelines and budgets. We offer services ranging from custom web applications, CMS development and e-commerce solutions to UI/UX design, maintenance and hosting.',
-    },
-    {
-      id: 'mobile',
-      title: 'Mobile App Development',
-      icon: Smartphone,
-      description: 'We create powerful mobile applications for iOS and Android platforms using cutting-edge technologies. Our mobile solutions are scalable, secure, and deliver exceptional user experiences.',
-    },
-    {
-      id: 'design',
-      title: 'UI/UX Design',
-      icon: Palette,
-      description: 'Our design team crafts beautiful and intuitive interfaces that engage users and drive conversions. We focus on user-centered design principles to create memorable digital experiences.',
-    },
-    {
-      id: 'cms',
-      title: 'CMS & CRM',
-      icon: Database,
-      description: 'We implement robust content management and customer relationship management systems tailored to your business needs. Streamline your operations and enhance customer engagement.',
-    },
-    {
-      id: 'erp',
-      title: 'ERP Solutions',
-      icon: Shield,
-      description: 'Enterprise resource planning solutions that integrate all your business processes. Improve efficiency, reduce costs, and gain real-time insights into your operations.',
-    },
-    {
-      id: 'graphics',
-      title: 'Graphics and Logo',
-      icon: Rocket,
-      description: 'Professional graphic design services including logo design, branding, marketing materials, and visual identity development that makes your brand stand out.',
-    },
-  ];
+  {
+    id: "web",
+    title: "Web Development",
+    icon: GlobeIcon,
+    subtitle: "React, Node.js, Laravel, TypeScript, WordPress, MySQL, Python",
+  },
+  {
+    id: "ios",
+    title: "Native iOS Development",
+    icon: SmartphoneIcon,
+    subtitle: "Objective-C, Swift, Xcode",
+  },
+  {
+    id: "android",
+    title: "Native Android Development",
+    icon: AndroidIcon,
+    subtitle: "Java, Kotlin, XML, Android Studio, Firebase",
+  },
+  {
+    id: "react-native",
+    title: "React-Native Development",
+    icon: ShieldIcon,
+    subtitle: "React, JavaScript, Redux",
+  },
+  {
+    id: "flutter",
+    title: "Flutter Development",
+    icon: RocketIcon,
+    subtitle: "Flutter SDK, Dart",
+  },
+  {
+    id: "design",
+    title: "UI/UX Design",
+    icon: PaletteIcon,
+    subtitle: "App, Website, Logo, Figma, XD, Photoshop",
+  },
+];
 
-const App = React.memo(() => { 
-  const [activeService, setActiveService] = useState(0);
-  // State to manage pause functionality only for the details area
-  const [isPaused, setIsPaused] = useState(false);
+const ServicesInteractive = () => {
+  const [hoveredService, setHoveredService] = useState(null);
 
-  // Auto-cycle service logic is now conditional on the isPaused state
-  useEffect(() => {
-    if (isPaused) return;
+  const customStyles = `
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+    @media (max-width: 1023px) {
+      .float-animation {
+        animation: none;
+      }
+    }
+  `;
 
-    // Timer set to 4000ms (4 seconds)
-    const interval = setInterval(() => {
-      setActiveService((prev) => (prev + 1) % services.length);
-    }, 2500); 
-    return () => clearInterval(interval);
-  }, [services.length, isPaused]); // Now depends on isPaused
-
-  // Handlers for pausing the timer on hover/touch
-  const handleMouseEnter = () => setIsPaused(true);
-  const handleMouseLeave = () => setIsPaused(false);
-
-  const ActiveIcon = services[activeService].icon;
+  const Card = ({ service }) => {
+    const Icon = service.icon;
+    return (
+      <div
+        onMouseEnter={() => setHoveredService(service)}
+        onMouseLeave={() => setHoveredService(null)}
+        className="bg-white rounded-2xl p-6 cursor-pointer border-2 border-stone-200 shadow-lg 
+        hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-1 
+        hover:border-red-700 transition-all duration-300 ease-in-out group"
+      >
+        <div className="flex items-start gap-4">
+          <div
+            className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 
+            bg-red-100 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-red-700 group-hover:bg-[#801515] 
+            group-hover:shadow-xl "
+          >
+            <Icon className="w-7 h-7 text-red-800 transition-all duration-300 group-hover:text-white group-hover:scale-125" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <h3 className="text-lg md:text-xl font-extrabold text-stone-800 mb-1 transition-colors group-hover:text-red-800">
+              {service.title}
+            </h3>
+            <p className="text-xs md:text-sm text-stone-500 leading-relaxed transition-colors">
+              {service.subtitle}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: tailwindConfig }} />
-      <section className="py-12 md:py-20 bg-background font-sans min-h-screen">
+      <style>{customStyles}</style>
+
+      <section className="py-12 md:py-20 bg-stone-50 font-sans min-h-screen">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-8 md:mb-12">
+          {/* Header */}
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
-              <span className="text-foreground">Services we </span>
-              <span className="text-primary">offer</span>
+              <span className="text-stone-900">Expert Technology </span>
+              <span className="text-red-900">Services</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
-              We understand that every business is unique, and we tailor our services to meet your specific needs and objectives.
+            <p className="text-base md:text-lg text-stone-700 max-w-3xl mx-auto px-4">
+              We deliver tailored web, mobile, and design solutions crafted with innovation and precision.
             </p>
           </div>
 
-          {/* Button section - NO hover pause here */}
-          <div className="mb-6 md:mb-8">
-            <div 
-              className="flex flex-wrap justify-center gap-3 pb-3 px-4"
-            >
-              {services.map((service, index) => (
-                <button
-                  key={service.id}
-                  // Simple onClick: sets active service
-                  onClick={() => setActiveService(index)}
-                  className={`
-                    px-5 md:px-7 py-2.5 md:py-3.5 
-                    rounded-xl font-semibold 
-                    whitespace-nowrap 
-                    text-center 
-                    transition-all duration-150
-                    text-sm md:text-base 
-                    shadow-md border 
-                    ${
-                      activeService === index
-                        ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/50 transform scale-105 border-primary'
-                        : 'bg-gray-200 text-gray-700 border-gray-200' // No hover effect here
-                    }
-                  `}
-                >
-                  {service.title}
-                </button>
+          {/* Grid Layout */}
+          <div className="grid lg:grid-cols-12 gap-6 md:gap-8">
+            {/* Left */}
+            <div className="lg:col-span-4 space-y-5">
+              {services.slice(0, 3).map((service) => (
+                <Card key={service.id} service={service} />
               ))}
             </div>
-          </div>
 
-          {/* Service Display - Hover pause is applied here */}
-          <div 
-            className="bg-gray-900 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl max-w-6xl mx-auto"
-            onMouseEnter={handleMouseEnter} // Hover over details pauses cycle
-            onMouseLeave={handleMouseLeave} // Leaving resumes cycle
-            onTouchStart={handleMouseEnter} // Touch start pauses cycle
-            onTouchEnd={handleMouseLeave} // Touch end resumes cycle
-          >
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Left Side - Content */}
-              <div className="p-6 md:p-10 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/20 rounded-xl flex items-center justify-center mb-4 md:mb-6">
-                  <ActiveIcon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
-                  {services[activeService].title}
-                </h3>
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
-                  {services[activeService].description}
-                </p>
-                {/* Using the simple inline Button component */}
-                <Button className="w-fit bg-primary hover:bg-primary/90 text-sm md:text-base shadow-lg transition duration-150">
-                  Explore {services[activeService].title} →
-                </Button>
-              </div>
+            <div className="lg:col-span-4 flex items-center justify-center py-8 lg:py-0 group ">
+              <DeveloperIllustration className="w-full h-auto rounded-xl" />
+            </div>
 
-              {/* Right Side - Icon Background. Placed above content on mobile (order-1) */}
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-700 p-8 md:p-12 flex items-center justify-center min-h-[200px] md:min-h-[300px] order-1 lg:order-2">
-                <ActiveIcon className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 text-white/5" />
-                <span className="absolute text-5xl font-extrabold text-primary/10 select-none">
-                    {services[activeService].title.toUpperCase()}
-                </span>
-              </div>
+            {/* Right */}
+            <div className="lg:col-span-4 space-y-5">
+              {services.slice(3, 6).map((service) => (
+                <Card key={service.id} service={service} />
+              ))}
             </div>
           </div>
         </div>
       </section>
     </>
   );
-});
+};
 
-export default App;
+export default ServicesInteractive;

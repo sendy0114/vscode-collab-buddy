@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, ExternalLink } from "lucide-react";
-import VerticalTestimonialCarousel from './VerticalTestimonialCarousel';
+import ParticleLogo from "./ParticleLogo";
+// import logo from "./assets/favicon.ico";
 import { Link } from "react-router-dom";
 import {
   SiReact,
@@ -110,42 +111,6 @@ const Hero = () => {
 
       <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="grid lg:grid-cols-12 gap-8 items-center">
-          {/* -------- COLUMN 1: Platforms (Desktop Only) -------- */}
-          <aside className="lg:col-span-2 hidden lg:block">
-            <div className="space-y-4">
-              {platforms.map((platform, idx) => (
-                <a
-                  key={idx}
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block animate-float-slow hover:scale-105 transition-all duration-300"
-                  style={{ animationDelay: `${idx * 0.2}s` }}
-                >
-                  <div className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl border border-gray-100">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-bold text-gray-900">
-                        {platform.name}
-                      </span>
-                      <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-primary transition-colors" />
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <span
-                        className={`text-2xl font-bold bg-gradient-to-r ${platform.color} bg-clip-text text-transparent`}
-                      >
-                        {platform.rating}
-                      </span>
-                      <div className="flex">
-                        {[...Array(platform.stars)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </aside>
 
           {/* -------- COLUMN 2: Center Hero (Priority on Mobile) -------- */}
           <article className="lg:col-span-6 mt-[15%] space-y-6 text-center lg:text-left order-first lg:order-none">
@@ -218,7 +183,14 @@ const Hero = () => {
 
           {/* -------- COLUMN 3: Testimonials (Desktop Only) -------- */}
           <aside className="lg:col-span-4 hidden lg:flex items-center justify-center">
-            <VerticalTestimonialCarousel />
+            <ParticleLogo
+              width={400} // Adjust canvas size, responsive
+              height={400}
+              particleSize={2} // Particle pixel size (smallest)
+              floatDistance={4} // max float distance in px
+              floatSpeed={0.1} // float cycle speed (seconds)
+              sampleRate={2} // sample every 4th pixel
+            />
           </aside>
         </div>
       </div>
