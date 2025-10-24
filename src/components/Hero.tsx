@@ -183,14 +183,43 @@ const Hero = () => {
 
           {/* -------- COLUMN 3: Testimonials (Desktop Only) -------- */}
           <aside className="lg:col-span-4 hidden lg:flex items-center justify-center">
-            <ParticleLogo
-              width={400} // Adjust canvas size, responsive
+            {/* <ParticleLogo
+              width={400}              // Canvas size
               height={400}
-              particleSize={2} // Particle pixel size (smallest)
-              floatDistance={4} // max float distance in px
-              floatSpeed={0.1} // float cycle speed (seconds)
-              sampleRate={2} // sample every 4th pixel
+              targetParticleCount={15000}  // Target particle count
+              particleSize={2}         // Particle pixel size
+              floatDistance={4}        // Max float distance in px
+              floatSpeed={1}           // Float cycle speed (seconds)
+              logoText="WS"            // Logo text
+              logoFontSize={0.85}       // Logo font size (70% of canvas)
+              logoStrokeWidth={32}     // width of font
+              hoverRadius={80}        // NEW: Hover effect radius (try 50-150)
+              hoverStrength={2}       // NEW: Brightness multiplier on hover (1-3)
+            // manualSpacing={2}     // Uncomment for fixed spacing
+            /> */}
+            <ParticleLogo
+              // Canvas dimensions
+              width={400}
+              height={400}
+
+              // Particle appearance
+              targetParticleCount={10000}  // Number of particles
+              particleSize={2}             // Size of each particle
+              minSpacing={3}               // Minimum space between particles
+
+              // Wind-in animation
+              transitionSpeed={0.5}        // Speed particles fly in (0.01-1, lower = smoother)
+
+              // Cursor interaction
+              cursorRadius={80}           // Size of cursor effect area
+              cursorStrength={40}          // How far particles push from cursor
+
+              // Logo customization
+              logoText="WS"
+              logoFontSize={0.85}
+              logoStrokeWidth={20}
             />
+
           </aside>
         </div>
       </div>

@@ -38,13 +38,12 @@ const blinkingTransition = (delay = 0.5) => ({
 // New helper function to introduce randomized delay for blinking
 const randomDelay = (max = 1.5) => Math.random() * max;
 
-// Styles for the animated </> code icon (previously split across multiple style attributes)
+// Styles for the animated </> code icon
 const codeIconStyle = {
     fill: '#FBD131',
     fontFamily: "'Anton-Regular'",
     fontSize: '28.5266px',
-    // Merged: transformOrigin is required for correct centering of the animation
-    transformOrigin: 'center'
+    // FIX 2: transformOrigin has been permanently removed from here to fix the React warning.
 };
 
 
@@ -89,7 +88,6 @@ const NlpIcon = ({ className = "", width = 900, height = 900, ...props }) => {
 
     // The entire raw SVG content, converted to valid JSX
     return (
-        // Added a slight maroon border via Tailwind class for the required "border" look
         <motion.svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +95,6 @@ const NlpIcon = ({ className = "", width = 900, height = 900, ...props }) => {
             x="0px"
             y="0px"
             viewBox="0 0 500 500"
-            // Removed style={{ enableBackground: 'new 0 0 500 500' }} as it's not strictly necessary in JSX
             xmlSpace="preserve"
             className={`${className}  `}
             initial={{ opacity: 0, y: 20 }}
@@ -107,7 +104,7 @@ const NlpIcon = ({ className = "", width = 900, height = 900, ...props }) => {
             width={200}
             {...props}
         >
-            {/* Background - REMOVED the solid rect fill as requested (only keeping the border) */}
+            {/* Background */}
             <motion.g id="Background"
                 animate={{ opacity: [1, 0.9, 1] }}
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
@@ -207,7 +204,9 @@ const NlpIcon = ({ className = "", width = 900, height = 900, ...props }) => {
                                         <g>
                                             <motion.line
                                                 style={{ fill: 'none', stroke: '#EF9B20', strokeWidth: '2.0881', strokeLinecap: 'round', strokeLinejoin: 'round', strokeMiterlimit: 10 }}
-                                                x1="226.188" y1="186.996" x2="226.188" y2="167.7"
+                                                x1="226.188" x2="226.188" 
+                                                // FIX 1A: y1/y2 props removed
+                                                initial={{ y1: 186.996, y2: 167.7 }}
                                                 animate={{ y1: [186.996, 184.996, 186.996], y2: [167.7, 165.7, 167.7] }}
                                                 transition={floatTransition}
                                             />
@@ -217,7 +216,9 @@ const NlpIcon = ({ className = "", width = 900, height = 900, ...props }) => {
                                         <g>
                                             <motion.line
                                                 style={{ fill: 'none', stroke: '#EF9B20', strokeWidth: '2.0881', strokeLinecap: 'round', strokeLinejoin: 'round', strokeMiterlimit: 10 }}
-                                                x1="275.987" y1="186.996" x2="275.987" y2="167.7"
+                                                x1="275.987" x2="275.987"
+                                                // FIX 1B: y1/y2 props removed
+                                                initial={{ y1: 186.996, y2: 167.7 }}
                                                 animate={{ y1: [186.996, 182.996, 186.996], y2: [167.7, 163.7, 167.7] }}
                                                 transition={{ ...floatTransition, duration: 6 }}
                                             />
@@ -505,6 +506,8 @@ const NlpIcon = ({ className = "", width = 900, height = 900, ...props }) => {
                                 x="123.29"
                                 y="237.56"
                                 {...codeIconStyle}
+                                // FIX 3: Add transformOrigin directly here
+                                // transformOrigin="center" 
                                 animate={{ scale: [1, 1.5, 1] }}
                                 transition={pulseTransition}
                                 textAnchor="middle"

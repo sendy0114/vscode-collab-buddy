@@ -65,17 +65,18 @@ export const Navbar: React.FC = () => {
   }, [location]);
 
   return (
+    // <div>
     <nav
-      className={`fixed left-0 right-0 z-50 transition-transform duration-300 ease-in-out bg-transparent py-4 ${
-        showNavbar ? 'translate-y-0' : '-translate-y-full'
+      className={`fixed left-0 right-0 z-50 transition-transform duration-300 ease-in-out py-4 ${
+        showNavbar ? 'translate-y-0' : '-translate-y-[150%]'
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="bg-white rounded-lg shadow-xl h-20 px-6 flex items-center justify-between">
+        <div className="backdrop-blur-md rounded-lg shadow-xl h-20 px-6 flex items-center justify-between">
           {/* Logo */}
           <NavLogo />
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu */}  
           <div className="hidden lg:flex items-center space-x-1">
             {navMenuItems.map((item) => {
               const hasMegaContent = item.mega && megaMenuData[item.name as MegaMenuKey];
@@ -109,7 +110,7 @@ export const Navbar: React.FC = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="group font-medium h-10 px-6 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
+                className="group font-medium h-10 px-6 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-1000 hover:scale-105 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"
               >
                 Hire Us
               </Button>
@@ -144,5 +145,7 @@ export const Navbar: React.FC = () => {
         />
       )}
     </nav>
+    // </div>
+
   );
 };

@@ -25,18 +25,20 @@ import CMSCRM from "./pages/services/CMSCRM";
 import ERP from "./pages/services/ERP";
 import GraphicsAndLogo from "./pages/services/GraphicsAndLogo";
 import AIML from "./pages/services/AIML";
+import AnnouncementBar from './components/AnnouncementBar';
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <Provider store={store}>
+  <>
+  <AnnouncementBar/>
+    <Provider store={store}>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <Navbar />
-          
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+            <Navbar />
           <BackToTop />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -62,6 +64,8 @@ const App = () => (
       </TooltipProvider>
     </QueryClientProvider>
   </Provider>
+  </>
+
 );
 
 export default App;
